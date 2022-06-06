@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 // Connects to our database depending on the URI as an environmental variable
-const POSTGRES_URI =  process.env.DATABASE_URL;
+const POSTGRES_URI = process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : process.env.DATABASE_URL;
 
 const { Sequelize, DataTypes } = require("sequelize");
 
